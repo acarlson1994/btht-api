@@ -17,6 +17,7 @@ deploy_production:
     - ubuntu
   script:
     - echo "Deploy to production server"
+    - pwd
   environment: production
   only:
   - master
