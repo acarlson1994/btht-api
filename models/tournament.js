@@ -8,6 +8,7 @@ var TournamentSchema   = new Schema({
     title: String,
     description: String,
     private: Boolean,
+    hostsuserid: Number,
     gameid: Number,
 	winners: [{
 		userid: Number,
@@ -23,6 +24,10 @@ var TournamentSchema   = new Schema({
 	toObject: {
 		virtuals: true
 	}
+});
+
+TournamentSchema.virtual('tournamentid').get(function() {
+    return this._id;
 });
 
 module.exports = mongoose.model('Tournament', TournamentSchema);

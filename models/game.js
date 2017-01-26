@@ -5,7 +5,6 @@ var Schema       = mongoose.Schema;
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var GameSchema   = new Schema({
-	//gameid: ObjectId,
     name: String
 },
 {
