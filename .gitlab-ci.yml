@@ -18,6 +18,7 @@ deploy_production:
   script:
     - echo "Deploy to production server"
     - npm install
+    - npm install forever -g
     - forever start .
   environment: production
   only:
