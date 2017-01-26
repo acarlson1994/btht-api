@@ -19,6 +19,5 @@ deploy_production:
     - echo "Deploy to production server"
   environment:
     name: production
-    url: https://api.btht.tv
   only:
   - master
