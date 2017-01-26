@@ -17,7 +17,8 @@ deploy_production:
     - ubuntu
   script:
     - echo "Deploy to production server"
-    - pwd
+    - npm install
+    - forever start .
   environment: production
   only:
   - master
