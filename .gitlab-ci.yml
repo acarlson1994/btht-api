@@ -17,7 +17,6 @@ deploy_production:
     - ubuntu
   script:
     - echo "Deploy to production server"
-  environment:
-    name: production
+  environment: production
   only:
   - master
