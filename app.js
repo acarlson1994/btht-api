@@ -7,6 +7,7 @@ var app = express();
 var mongoose   = require('mongoose');
 
 var config = require('./config/dev');
+mongoose.Promise = global.Promise;
 mongoose.connect(config.database); // connect to our database
 
 var port = process.env.PORT || 8080;
