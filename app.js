@@ -5,7 +5,9 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var app = express();
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/bthtdb'); // connect to our database
+
+var config = require('./config/dev');
+mongoose.connect(config.database); // connect to our database
 
 var port = process.env.PORT || 8080;
 
