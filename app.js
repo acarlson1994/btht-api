@@ -17,7 +17,6 @@ app.use(bodyParser.json());
 
 router.use(function(req, res, next) {
     // To do remove _id and __v from response
-	//console.log(res);
     next();
 });
 
@@ -33,4 +32,4 @@ app.use('/v1', router);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Magic happens on port ' + port);
+console.log('Port: ' + port);
