@@ -57,6 +57,37 @@ module.exports = function(router)
 		});
 		
 	router.route('/user/:id')
+        /**
+         * @api {get} /user/:id Request User information
+         * @apiName GetUser
+         * @apiGroup User
+         *
+         * @apiParam {ObjectId} id Users unique ID.
+         *
+         * @apiSuccess {ObjectId} userid  Userid of the User.
+         * @apiSuccess {String} firstname  Firstname of the User.
+         * @apiSuccess {String} lastname Lastname of the User.
+         * @apiSuccess {String} fullname  Fullame of the User.
+         * @apiSuccess {String} username Username of the User.
+         *
+         * @apiSuccessExample Success-Response:
+         *     HTTP/1.1 200 OK
+         *     {
+         *       "userid": "58a55bf5a5ea51140ce7d5b5",
+         *       "firstname": "John",
+         *       "lastname": "Doe",
+         *       "fullname": "John Doe",
+         *       "username": "johndoe"
+         *     }
+         *
+         * @apiError UserNotFound The id of the User was not found.
+         *
+         * @apiErrorExample Error-Response:
+         *     HTTP/1.1 404 Not Found
+         *     {
+         *       "error": "UserNotFound"
+         *     }
+         */
 		.get(function(req, res) {
 			
 			/*
