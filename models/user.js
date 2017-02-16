@@ -63,6 +63,21 @@ UserSchema.virtual('userid').get(function() {
     return this._id;
 });
 
+UserSchema.virtual('created').get(function() {
+    return this.createdAt;
+});
+
+UserSchema.methods.toJSON = function() {
+  var obj = this.toObject()
+  delete obj._id
+  delete obj.__v
+  delete obj.id
+  delete obj.createdAt
+  delete obj.updatedAt
+  delete obj.email
+  return obj
+}
+
 UserSchema.plugin(uniqueValidator);
 
 module.exports  = mongoose.model('User', UserSchema);
