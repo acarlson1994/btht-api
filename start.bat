@@ -3,11 +3,15 @@
 echo Start MongoDB.
 start cmd /c "D:\Program Files\MongoDB\Server\3.4\bin\mongod.exe" --dbpath d:\mongodbdata\temp
 
+echo Start Redis
+rem start cmd /c bash -c "sudo service redis-server start"
+
+rem TIMEOUT 5
 echo Delete Docs dir.
 call rd /s /q "doc"
 
 echo Generate API Documentation.
-call apidoc
+rem call apidoc
 
 echo Wait for MongoDB to start.
 TIMEOUT 2
