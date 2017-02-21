@@ -5,10 +5,15 @@ var Schema       = mongoose.Schema;
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var MatchSchema   = new Schema({
-    tournamentid: Number,
-    lastname: String,
+    tournamentid: ObjectId,
+    status: String,
+    competitiors: [{
+		userid: ObjectId,
+		name: String,
+		position: Number
+	}],
 	winners: [{
-		userid: Number,
+		userid: ObjectId,
 		name: String,
 		position: Number
 	}]
