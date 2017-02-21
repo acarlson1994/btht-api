@@ -67,7 +67,7 @@ UserSchema.virtual('created').get(function() {
     return this.createdAt;
 });
 
-UserSchema.methods.toJSON = function() {
+/*UserSchema.methods.toJSON = function() {
   var obj = this.toObject()
   delete obj._id
   delete obj.__v
@@ -76,7 +76,7 @@ UserSchema.methods.toJSON = function() {
   delete obj.updatedAt
   delete obj.email
   return obj
-}
+}*/
 
 UserSchema.plugin(uniqueValidator);
 
