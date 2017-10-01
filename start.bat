@@ -4,7 +4,7 @@ echo Start MongoDB.
 start cmd /c "D:\Program Files\MongoDB\Server\3.4\bin\mongod.exe" --dbpath d:\mongodbdata\temp
 
 echo Start Redis
-rem start cmd /c bash -c "sudo service redis-server start"
+start cmd /c bash -xe -c "sudo redis-server /etc/redis/redis.conf && tail -f /var/log/redis/redis-server.log"
 
 rem TIMEOUT 5
 echo Delete Docs dir.

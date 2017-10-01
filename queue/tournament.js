@@ -39,7 +39,7 @@ queue.on('error', (err) => {
   console.error(err.stack);
 });
 
-function createTournament(data, done) {  
+function createTournament(data, done) {
   var job = queue.create('tournament', data)
     .priority('critical')
     .attempts(8)

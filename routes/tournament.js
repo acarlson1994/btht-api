@@ -39,11 +39,9 @@ module.exports = function(router)
             /*
              * Queue create tournament.
              */
-            //if (req.body.participants) {
+            if (req.body.participants) {
               queueTournament.create(tournament);
-            //}
-            
-            // Check 
+            }
 
         })
         .get(function(req,res){
@@ -82,9 +80,48 @@ module.exports = function(router)
             
         })
         .put(function(req,res){
-            res.send('Update Tournament');
+            
+            /*
+             * Edit tournament by id.
+             */
+            Tournament.findById(req.params.id, function(err, tournament) {
+
+                if (err){
+                    res.send(err);
+                }
+                tournament.title = req.body.title;
+                tournament.description = req.body.description;
+                tournament.type = req.body.type;
+                tournament.private = req.body.private;
+                tournament.hostuserid = req.body.hostuserid;
+                tournament.gameid = req.body.gameid;
+                tournament.participants = req.body.participants;
+                tournament.seeding = req.body.seeding;
+
+                tournament.save(function(err) {
+                    if (err) {
+                        res.send(err);
+                    } else {
+                        res.json(tournament);
+                    }
+                });
+
+            });
+        
         })
         .delete(function(req,res){
-            res.send('Delete Tournament');
+            
+            /*
+             * Delete tournament by id.
+             */
+            Tournament.remove({
+                _id: req.params.id
+            }, function(err, tournament) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.json({ message: 'Successfully deleted' });
+                }
+            });
         });
 }
